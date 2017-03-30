@@ -1,0 +1,8 @@
+/Users/AlecksJohanssen/Desktop/Project/Test/bin/Debug/netcoreapp1.1/Test.deps.json
+/Users/AlecksJohanssen/Desktop/Project/Test/bin/Debug/netcoreapp1.1/Test.runtimeconfig.json
+/Users/AlecksJohanssen/Desktop/Project/Test/bin/Debug/netcoreapp1.1/Test.runtimeconfig.dev.json
+/Users/AlecksJohanssen/Desktop/Project/Test/bin/Debug/netcoreapp1.1/Test.dll
+/Users/AlecksJohanssen/Desktop/Project/Test/bin/Debug/netcoreapp1.1/Test.pdb
+/Users/AlecksJohanssen/Desktop/Project/Test/obj/Debug/netcoreapp1.1/Test.AssemblyInfo.cs
+/Users/AlecksJohanssen/Desktop/Project/Test/obj/Debug/netcoreapp1.1/Test.dll
+/Users/AlecksJohanssen/Desktop/Project/Test/obj/Debug/netcoreapp1.1/Test.pdb
