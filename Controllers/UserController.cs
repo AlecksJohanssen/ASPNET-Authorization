@@ -6,10 +6,19 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Test.Controllers
 {
+    
     public class UserController : Controller
     {
+        private readonly MemberContext _context;
+
+        public UserController(MemberContext context)
+        {
+            _context = context;
+        }
+        [HttpGet("user/index")]
         public IActionResult Index()
         {
+            ViewBag.data = _context.members.ToList();;
             return View();
         }
 

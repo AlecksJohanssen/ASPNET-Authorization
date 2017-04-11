@@ -1,1 +1,8 @@
-<h1>Hi I Am Alecks Johannesburg</h1>
+<div class="row">
+    <b>Employee Name:</b> @ViewBag.data
+    @foreach (var product in @ViewBag.data)
+            {
+                // cut for brevity, need to add back more code from original
+                <li>@product.Id</li>
+            }
+</div>

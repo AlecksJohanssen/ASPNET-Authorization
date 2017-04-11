@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
+using Microsoft.EntityFrameworkCore;
 
 namespace Test
 {
@@ -26,9 +28,14 @@ namespace Test
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
+        {   
+            
             // Add framework services.
             services.AddMvc();
+            var connectionString = Configuration["DbContextSettings:ConnectionString"];
+            services.AddDbContext<MemberContext>(
+                opts => opts.UseNpgsql(connectionString)
+            );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,12 +61,6 @@ namespace Test
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
-            });
-
-            app.UseMvc(routes => {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=User}/{action=Index}/{id?}");
             });
         }
     }
