@@ -1,8 +1,8 @@
 <div class="row">
-    <b>Employee Name:</b> @ViewBag.data
-    @foreach (var product in @ViewBag.data)
+
+    @foreach (var product in @Model.MemberList)
             {
-                // cut for brevity, need to add back more code from original
-                <li>@product.Id</li>
+                <h1>@product.First_name</h1>
             }
+            
 </div>

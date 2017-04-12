@@ -18,8 +18,15 @@ namespace Test.Controllers
         [HttpGet("user/index")]
         public IActionResult Index()
         {
-            ViewBag.data = _context.members.ToList();;
-            return View();
+            var model = _context.members.ToList();
+            var member = new Repo {
+                MemberList = GetAll()
+            };
+            return View(member);
+        }
+
+        public List<Member> GetAll() {
+            return _context.members.ToList();
         }
 
         public IActionResult About()
