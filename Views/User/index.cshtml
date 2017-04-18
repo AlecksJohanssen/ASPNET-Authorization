@@ -1,8 +1,8 @@
 <div class="row">
-
-    @foreach (var product in @Model.MemberList)
-            {
-                <h1>@product.First_name</h1>
+            @foreach (var item in ViewBag.dataContent) {
+                <h2>@item.First_name</h2>
+                @foreach (var data in item.articles ) {
+                    @data
+                }
             }
-            
 </div>

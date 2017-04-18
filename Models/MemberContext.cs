@@ -7,4 +7,6 @@ public class MemberContext : DbContext
     { }
 
     public DbSet<Member> members { get; set; }
+    
+    public DbSet<Article> articles { get; set; }
 }
