@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 
 public class MemberContext : DbContext  
 {
+
     public MemberContext(DbContextOptions<MemberContext> options)
         : base(options)
     { }

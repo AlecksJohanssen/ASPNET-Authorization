@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
 namespace Test.Controllers
 {
@@ -23,10 +22,11 @@ namespace Test.Controllers
             var data = _context.members.Include(d => d.articles);
             return data;
         }
-        
-        public IActionResult Index()
+        [HttpGet("user/member")]
+        public IActionResult Member()
         {
-            ViewBag.dataContent = _context.members.ToList();
+            Repo rp = new Repo(_context);
+            ViewBag.content= rp.GetAllMember();
             return View();
         }
 
