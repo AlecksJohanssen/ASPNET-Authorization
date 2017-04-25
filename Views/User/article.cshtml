@@ -1,0 +1,8 @@
+@foreach (var item in ViewBag.content)
+{
+    @item.articles
+    @item.name
+    @foreach (var test in item.articles) {
+        @test.content
+    }
+}
