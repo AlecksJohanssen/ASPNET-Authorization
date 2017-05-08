@@ -16,11 +16,11 @@ namespace Test.Controllers
         {
             _context = context;
         }
-       [HttpGet("user/index")]
-        public IEnumerable<Member> Get()
+       [HttpGet("user/blah")]
+        public IActionResult blah()
         {
-            var data = _context.members.Include(d => d.articles);
-            return data;
+            var data = _context.articles.ToList();
+            return View(data);
         }
         [HttpGet("user/member")]
         public IActionResult Member()
@@ -76,7 +76,7 @@ namespace Test.Controllers
         public IEnumerable<Member> deletemember()
         {
             Repo rp = new Repo(_context);
-            rp.deleteMember(1);
+            rp.deleteMember(2);
             var data = _context.members.Include(d => d.articles);
             return data;
         }

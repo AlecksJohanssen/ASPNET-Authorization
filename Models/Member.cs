@@ -19,12 +19,20 @@ public class Repo {
     public Repo(MemberContext context) {
         _context = context;
     }
-    public List<Member> GetAllMember() {
-            List<Member> allMembers = new List<Member>();
+    public IEnumerable<Member> GetAllMember() {
+            IEnumerable<Member> allMembers;
             allMembers = _context.members.ToList();
-            var member = from user in allMembers select user;
-            return member as List<Member>;
+            var member = from user in allMembers select user; // LINQ 
+            return member as IEnumerable<Member>;
     }
+
+    public IEnumerable<Member> test() {
+        IEnumerable<Member> members = _context.members.ToList();
+        var selected = _context.members.Where(hello => hello.id == 2);// LAMBDA EXPRESSION
+        var test = from member in _context.members where member.id == 2 select member; // NO LAMBDA EXPRESSION
+        return selected as IEnumerable<Member>;
+    }
+
 
     public IEnumerable<Member> GetAllMemberWithName() {
         IEnumerable<Member> members = _context.members.ToList();
@@ -63,7 +71,7 @@ public class Repo {
     }
 
     public void updateMember(int id) {
-        var currentMember = _context.members.Where(member => member.id == id).FirstOrDefault();
+        var currentMember = _context.members.Where(member => member.id == 2).FirstOrDefault();
         currentMember.name = "John Wick";
         _context.SaveChanges();
     }
@@ -89,6 +97,7 @@ public class Repo {
         var thisMember = from details in _context.members.Include(member => member.articles)
         where details.id == dataId
         select details;
+        Console.WriteLine(new DateTime());
         _context.articles.Remove(thisMember.FirstOrDefault().articles.FirstOrDefault());
         _context.SaveChanges();
     }
